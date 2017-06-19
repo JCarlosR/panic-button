@@ -295,3 +295,8 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script src="{{ asset('js/matrix.interface.js') }}"></script>
+    <script src="{{ asset('js/matrix.dashboard.js') }}"></script>
+@endsection

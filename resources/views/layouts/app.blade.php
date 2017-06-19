@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.min.css') }}" />
+    {{--<link rel="stylesheet" href="{{ asset('css/uniform.css') }}" />--}}
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/matrix-style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/matrix-media.css') }}" />
@@ -109,18 +111,16 @@
 <script src="{{ asset('js/jquery.flot.resize.min.js') }}"></script>
 <script src="{{ asset('js/jquery.peity.min.js') }}"></script>
 <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('js/matrix.js') }}"></script>
-<script src="{{ asset('js/matrix.dashboard.js') }}"></script>
 <script src="{{ asset('js/jquery.gritter.min.js') }}"></script>
-<script src="{{ asset('js/matrix.interface.js') }}"></script>
 <script src="{{ asset('js/matrix.chat.js') }}"></script>
-<script src="{{ asset('js/jquery.validate.js') }}"></script>
-<script src="{{ asset('js/matrix.form_validation.js') }}"></script>
-<script src="{{ asset('js/jquery.wizard.js') }}"></script>
+{{--<script src="{{ asset('js/jquery.validate.js') }}"></script>--}}
+{{--<script src="{{ asset('js/matrix.form_validation.js') }}"></script>--}}
+{{--<script src="{{ asset('js/jquery.wizard.js') }}"></script>--}}
 <script src="{{ asset('js/jquery.uniform.js') }}"></script>
-<script src="{{ asset('js/select2.min.js') }}"></script>
 <script src="{{ asset('js/matrix.popover.js') }}"></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/matrix.js') }}"></script>
 <script src="{{ asset('js/matrix.tables.js') }}"></script>
 
 <script type="text/javascript">
@@ -147,5 +147,7 @@
         document.gomenu.selector.selectedIndex = 2;
     }
 </script>
+
+@yield('scripts')
 </body>
 </html>

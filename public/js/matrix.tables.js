@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$('.data-table').dataTable({
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
-		"sDom": '<""l>t<"F"fp>'
+		"sDom": '<"H"l>t<"F"p>' // f is for filtering (search)
 	});
 	
 	$('input[type=checkbox],input[type=radio],input[type=file]').uniform();
