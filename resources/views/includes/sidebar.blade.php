@@ -11,19 +11,19 @@
                 <i class="icon icon-signal"></i> <span>Reporte de incidencias</span>
             </a>
         </li>
-        {{--<li>--}}
-            {{--<a href="widgets.html">--}}
-                {{--<i class="icon icon-inbox"></i> <span>Widgets</span>--}}
-            {{--</a>--}}
-        {{--</li>--}}
         <li>
             <a href="{{ url('/trucks') }}">
                 <i class="icon icon-th"></i> <span>Camiones</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('/users') }}">
+            <a href="{{ url('/drivers') }}">
                 <i class="icon icon-hand-up"></i> <span>Conductores</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/map') }}">
+                <i class="icon icon-magic"></i> <span>Mapa</span>
             </a>
         </li>
         {{--<li class="submenu">--}}
