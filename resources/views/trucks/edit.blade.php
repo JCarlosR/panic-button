@@ -28,7 +28,7 @@
                             </div>
                         @endif
 
-                        <form action="" method="post" class="form-horizontal">
+                        <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="control-group">
@@ -62,7 +62,17 @@
                                            placeholder="Capacidad de carga en toneladas" name="capacity" />
                                 </div>
                             </div>
-
+                            <div class="control-group">
+                                <label class="control-label">Imagen del camión:</label>
+                                <div class="controls">
+                                    <div class="uploader" id="uniform-undefined">
+                                        <input type="file" size="19" style="opacity: 0;" name="image">
+                                        <span class="filename">No file selected</span>
+                                        <span class="action">Choose File</span>
+                                    </div>
+                                    <p class="help-block">Subir solo si se desea modificar.</p>
+                                </div>
+                            </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-success">Guardar cambios</button>
                             </div>

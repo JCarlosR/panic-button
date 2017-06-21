@@ -40,6 +40,16 @@ class TruckController extends Controller
         $truck->year = $request->input('year');
         $truck->capacity = $request->input('capacity');
         $truck->user_id = auth()->user()->id; // temporary
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/images/trucks';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+
+            $truck->image = $fileName;
+        }
+
         $truck->save();
 
         return redirect('/trucks')->with('notification', 'El camión se ha registrado exitosamente!');
@@ -66,7 +76,16 @@ class TruckController extends Controller
         $truck->model = $request->input('model');
         $truck->year = $request->input('year');
         $truck->capacity = $request->input('capacity');
-        $truck->user_id = auth()->user()->id; // temporary
+        // $truck->user_id = auth()->user()->id; // temporary
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/images/trucks';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $file->move($path, $fileName);
+
+            $truck->image = $fileName;
+        }
         $truck->save();
 
         return redirect('/trucks')->with('notification', 'El camión se ha modificado exitosamente!');

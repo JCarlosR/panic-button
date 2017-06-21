@@ -77,6 +77,9 @@
                                 <td>{{ $truck->year }}</td>{{-- 2015 --}}
                                 <td>{{ $truck->capacity }} Toneladas</td>
                                 <td>
+                                    <a href="/images/trucks/{{ $truck->image }}" class="btn btn-small btn-info" target="_blank">
+                                        <i class="icon-eye-open"></i> Ver
+                                    </a>
                                     <a href="/trucks/{{ $truck->id }}/edit" class="btn btn-small btn-primary">
                                         <i class="icon-edit"></i> Editar
                                     </a>
