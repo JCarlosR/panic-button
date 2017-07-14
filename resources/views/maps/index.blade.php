@@ -52,17 +52,19 @@
     </script>
     <script>
         function initMap() {
-            var uluru = {lat: -8.1149148, lng: -79.0381925};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
                 center: uluru
             });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
 
-            $('#map').show();
+            $.getJSON('/api/trucks', function (data) {
+                for (var i=0; i<data.length; ++i) {
+                    new google.maps.Marker({
+                        position: data[i],
+                        map: map
+                    });
+                }
+            });
         }
     </script>
 @endsection
