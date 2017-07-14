@@ -52,9 +52,11 @@
     </script>
     <script>
         function initMap() {
+            var centerLocation = { lat: -8.11187773, lng: -79.02561056 };
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
-                center: uluru
+                center: centerLocation
             });
 
             $.getJSON('/api/trucks', function (data) {
