@@ -14,7 +14,7 @@ class AddTruckIdToDrivers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('truck_id')->unsigned();
+            $table->integer('truck_id')->unsigned()->nullable();
             $table->foreign('truck_id')->references('id')->on('trucks');
         });
     }
