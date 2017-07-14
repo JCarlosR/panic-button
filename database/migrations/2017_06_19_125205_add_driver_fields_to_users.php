@@ -14,11 +14,11 @@ class AddDriverFieldsToUsers extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('dni');
-            $table->string('phone');
-            $table->string('address');
+            $table->string('dni')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->date('birth_date')->nullable();
-            $table->string('license');
+            $table->string('license')->nullable();
 
             $table->softDeletes();
         });
