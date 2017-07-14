@@ -52,7 +52,7 @@
     </script>
     <script>
         function initMap() {
-            var centerLocation = { lat: -8.11187773, lng: -79.02561056 };
+            var centerLocation = { lat: -8.1090524, lng: -79.0215336 };
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
@@ -61,8 +61,12 @@
 
             $.getJSON('/api/trucks', function (data) {
                 for (var i=0; i<data.length; ++i) {
+                    var location = {
+                        lat: parseFloat(data[i].lat),
+                        lng: parseFloat(data[i].lng),
+                    };
                     new google.maps.Marker({
-                        position: data[i],
+                        position: location,
                         map: map
                     });
                 }
