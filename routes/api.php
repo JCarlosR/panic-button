@@ -7,3 +7,5 @@ use Illuminate\Http\Request;
 });*/
 
 Route::get('trucks', 'Api\TruckController@index');
+
+Route::get('login', 'Api\AuthController@login');

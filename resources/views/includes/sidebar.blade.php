@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a href="charts.html">
+            <a href="/">
                 <i class="icon icon-signal"></i> <span>Reporte de incidencias</span>
             </a>
         </li>
@@ -19,6 +19,12 @@
         <li>
             <a href="{{ url('/drivers') }}">
                 <i class="icon icon-hand-up"></i> <span>Conductores</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('receivers') }}">
+                <i class="icon icon-file"></i> <span>Destinatarios</span>
+                <span class="label label-important" title="Vía mail y vía SMS">2</span>
             </a>
         </li>
         <li>
@@ -37,19 +43,6 @@
                 {{--<li><a href="form-wizard.html">Form with Wizard</a></li>--}}
             {{--</ul>--}}
         {{--</li>--}}
-        <li class="submenu">
-            <a href="#">
-                <i class="icon icon-file"></i> <span>Addons</span>
-                <span class="label label-important">5</span>
-            </a>
-            <ul>
-                <li><a href="index2.html">Dashboard2</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="invoice.html">Invoice</a></li>
-                <li><a href="chat.html">Chat option</a></li>
-            </ul>
-        </li>
         <li class="submenu">
             <a href="#">
                 <i class="icon icon-info-sign"></i> <span>Error</span>

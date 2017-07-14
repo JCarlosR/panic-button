@@ -27,4 +27,13 @@ Route::get('/drivers/{id}/delete', 'DriverController@delete');
 // Set truck to driver
 Route::post('/drivers/truck', 'DriverController@setTruck');
 
+// Receivers
+Route::get('/receivers', 'ReceiverController@index');
+Route::get('/receivers/create', 'ReceiverController@create');
+Route::post('/receivers', 'ReceiverController@store');
+Route::get('/receivers/{id}/edit', 'ReceiverController@edit');
+Route::post('/receivers/{id}/edit', 'ReceiverController@update');
+Route::get('/receivers/{id}/turn', 'ReceiverController@turn');
+Route::get('/receivers/{id}/delete', 'ReceiverController@delete');
+
 Route::get('/map', 'MapController@index');
