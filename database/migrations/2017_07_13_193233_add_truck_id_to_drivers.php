@@ -27,7 +27,7 @@ class AddTruckIdToDrivers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('truck_id');
+            $table->dropColumn('truck_id');
         });
     }
 }
