@@ -24,4 +24,7 @@ Route::get('/drivers/{id}/edit', 'DriverController@edit');
 Route::post('/drivers/{id}/edit', 'DriverController@update');
 Route::get('/drivers/{id}/delete', 'DriverController@delete');
 
+// Set truck to driver
+Route::post('/drivers/truck', 'DriverController@setTruck');
+
 Route::get('/map', 'MapController@index');

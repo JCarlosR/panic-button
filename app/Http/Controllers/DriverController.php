@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Truck;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class DriverController extends Controller
     public function index()
     {
         $drivers = User::where('admin', false)->get();
-        return view('drivers.index')->with(compact('drivers'));
+        $trucks = Truck::all();
+        return view('drivers.index')->with(compact('drivers', 'trucks'));
     }
 
     public function create()
@@ -30,6 +32,7 @@ class DriverController extends Controller
             'dni' => 'required|size:8',
             'phone' => 'min:6|max:20',
             'birth_date' => 'date',
+            'license' => 'required',
 
             'name' => 'required|min:3',
             'email' => 'required|email',
@@ -92,6 +95,22 @@ class DriverController extends Controller
         $driver->delete();
 
         return back()->with('notification', 'El conductor ha sido eliminado!');
+    }
+
+    public function setTruck(Request $request)
+    {
+        $rules = [
+            'driver_id' => 'exists:users,id',
+            'truck_id' => 'exists:trucks,id'
+        ];
+        $this->validate($request, $rules);
+
+        $driver = User::find($request->input('driver_id'));
+        $driver->truck_id = $request->input('truck_id');
+        $driver->save();
+
+        $notification = '';
+        return back()->with(compact('notification'));
     }
 
 }

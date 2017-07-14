@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('styles')
+    <style>
+        .select2-drop {
+            z-index: 99999;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div id="content-header">
         <div id="breadcrumb">
@@ -37,6 +45,7 @@
                                 <th>Dirección</th>
                                 <th>Fecha de nacimiento</th>
                                 <th>Brevete</th>
+                                <th>Camión</th>
                                 <th>Opciones</th>
                             </tr>
                             </thead>
@@ -49,8 +58,18 @@
                                 <td>{{ $driver->birth_date }}</td>
                                 <td>{{ $driver->license }}</td>
                                 <td>
+                                    @if ($driver->truck)
+                                        {{ $driver->truck->code }}
+                                    @else
+                                        Sin asignar
+                                    @endif
+                                </td>
+                                <td>
                                     <a href="/drivers/{{ $driver->id }}/edit" class="btn btn-small btn-primary">
                                         <i class="icon-edit"></i> Editar
+                                    </a>
+                                    <a href="#setDriver{{ $driver->id }}" data-toggle="modal" class="btn btn-small btn-info">
+                                        <i class="icon-magic"></i> Asignar
                                     </a>
                                     <a href="/drivers/{{ $driver->id }}/delete" class="btn btn-small btn-danger"
                                     onclick="return confirm('¿Está seguro que desea eliminar este registro?');">
@@ -66,4 +85,40 @@
             </div>
         </div>
     </div>
+
+    @foreach ($drivers as $driver)
+    <div id="setDriver{{ $driver->id }}" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Asignar camión</h3>
+        </div>
+
+        <div class="modal-body">
+            <form action="/drivers/truck" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="driver_id" value="{{ $driver->id }}">
+                @if ($driver->truck)
+                    <p>Esta es la placa del camión asignado actualmente al transportista: {{ $driver->truck->code }}</p>
+                @else
+                    <p>Actualmente este transportista no tiene asignado ningún camión.</p>
+                @endif
+                <div class="control-group">
+                    <label for="truck-id" class="control-label">Seleccione un camión del listado:</label>
+                    <div class="controls">
+                        <select name="truck_id" id="truck-id" required>
+                            <option value=""></option>
+                            @foreach ($trucks as $truck)
+                                <option value="{{ $truck->id }}">Placa {{ $truck->code }} (Modelo {{ $truck->model }})</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <a data-dismiss="modal" class="btn" href="#">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endforeach
 @endsection

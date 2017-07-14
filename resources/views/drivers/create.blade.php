@@ -71,7 +71,7 @@
                             <div class="control-group">
                                 <label class="control-label">E-mail:</label>
                                 <div class="controls">
-                                    <input type="email" class="span11" name="email" required>
+                                    <input type="email" class="span11" name="email" required value="{{ old('email') }}">
                                     <span class="help-block">
                                         Es un campo obligatorio para que pueda recibir notificaciones, y recuperar su acceso en caso de ser necesario.
                                     </span>
