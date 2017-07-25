@@ -92,7 +92,7 @@ class ReceiverController extends Controller
         $receiver = Receiver::find($id);
         $receiver->delete();
 
-        return back()->with('notification', 'El destinatario se ha sido eliminado!');
+        return back()->with('notification', 'El destinatario ha sido eliminado!');
     }
 
     public function turn($id)
