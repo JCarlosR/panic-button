@@ -25,12 +25,11 @@ class TravelController extends Controller
     	return $travels;
     }
 
-    public function updateStatus(Request $request)
+    public function updateStatus(Request $request, $id)
     {
-    	$travel_id = $request->input('travel_id');
     	$status = $request->input('status');
 
-    	$travel = Travel::find($travel_id);
+    	$travel = Travel::find($id);
     	$travel->status = $status;
     	if ($status == 2) // Finalizado
     		$travel->arrived_at = Carbon::now();
