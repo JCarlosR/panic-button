@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Mail\EmergencyCallReceived;
+use App\Receiver;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\DistressCall;
+use Illuminate\Support\Facades\Mail;
 
 class DistressCallController extends Controller
 {
@@ -17,6 +20,9 @@ class DistressCallController extends Controller
     	$call->lat = $request->input('lat');
     	$call->lng = $request->input('lng');
     	$saved = $call->save();
+
+    	$receivers = Receiver::pluck('email');
+        Mail::to($receivers)->send(new EmergencyCallReceived($call));
 
     	$data = [];
     	$data['success'] = $saved;
