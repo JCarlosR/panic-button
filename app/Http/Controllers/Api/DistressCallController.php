@@ -21,7 +21,7 @@ class DistressCallController extends Controller
     	$call->lng = $request->input('lng');
     	$saved = $call->save();
 
-    	$receivers = Receiver::pluck('email');
+    	$receivers = Receiver::where('status', 1)->pluck('email');
         Mail::to($receivers)->send(new EmergencyCallReceived($call));
 
     	$data = [];
