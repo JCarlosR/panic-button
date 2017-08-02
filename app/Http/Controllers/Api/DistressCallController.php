@@ -36,7 +36,7 @@ class DistressCallController extends Controller
         $smsText = "Se ha reportado una nueva incidencia! El agraviado es $name (con DNI $dni). Y su posición es: $googleMapsLink";
         Nexmo::message()->send([
             'to' => '51966543777',
-            'from' => "NEXMO",
+            'from' => '51990044442',
             'text' => $smsText
         ]);
 
