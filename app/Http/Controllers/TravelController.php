@@ -12,7 +12,8 @@ class TravelController extends Controller
     public function index()
     {
         $travels = Travel::orderBy('departure_date', 'desc')
-            ->orderBy('departure_time', 'desc')->get();
+            ->orderBy('departure_time', 'desc')->pluck('departure_date');
+        dd($travels);
         return view('movements.travels.index')->with(compact('travels'));
     }
 
