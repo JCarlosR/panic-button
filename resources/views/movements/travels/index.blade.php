@@ -78,7 +78,7 @@
             "bJQueryUI": true,
             "sPaginationType": "full_numbers",
             "sDom": '<"H"l>t<"F"p>', // f is for filtering (search)
-            "ordering": false
+            "bSort" : false
         });
     </script>
 @endsection
