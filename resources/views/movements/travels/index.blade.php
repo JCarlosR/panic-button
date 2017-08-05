@@ -29,7 +29,7 @@
                             </a>
                         </p>
 
-                        <table class="table table-bordered data-table">
+                        <table class="table table-bordered data-table-travel">
                             <thead>
                             <tr>
                                 <th>Ruta a seguir</th>
@@ -70,4 +70,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.data-table-travel').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "sDom": '<"H"l>t<"F"p>', // f is for filtering (search)
+            "ordering": false
+        });
+    </script>
 @endsection
