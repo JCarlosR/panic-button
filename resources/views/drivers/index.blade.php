@@ -41,6 +41,7 @@
                             <thead>
                             <tr>
                                 <th>DNI</th>
+                                <th>Nombre</th>
                                 <th>Teléfono</th>
                                 <th>Dirección</th>
                                 <th>Fecha de nacimiento</th>
@@ -53,6 +54,7 @@
                             @foreach ($drivers as $driver)
                             <tr>
                                 <td>{{ $driver->dni }}</td>
+                                <td>{{ $driver->name }}</td>
                                 <td>{{ $driver->phone }}</td>
                                 <td>{{ $driver->address }}</td>
                                 <td>{{ $driver->birth_date }}</td>

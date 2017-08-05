@@ -11,7 +11,7 @@ class TravelController extends Controller
 {
     public function index()
     {
-        $travels = Travel::all();
+        $travels = Travel::orderBy('departure_date', 'desc')->get();
         return view('movements.travels.index')->with(compact('travels'));
     }
 
