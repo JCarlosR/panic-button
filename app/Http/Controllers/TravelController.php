@@ -82,4 +82,12 @@ class TravelController extends Controller
         $notification = 'El viaje se ha eliminado correctamente.';
         return back()->with(compact('notification'));
     }
+
+    public function report()
+    {
+        $travels = Travel::orderBy('departure_date', 'desc')
+            ->orderBy('departure_time', 'desc')->get();
+
+        return view('reports.travels.index')->with(compact('travels'));
+    }
 }

@@ -8,7 +8,7 @@
     <div id="content-header">
         <div id="breadcrumb">
             <a href="/" title="Ir al inicio" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
-            <a href="#" class="current">Incidencias</a>
+            <a href="#" class="current">Reporte de incidencias</a>
         </div>
         <h1>Incidencias o denuncias</h1>
     </div>

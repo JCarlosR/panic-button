@@ -67,4 +67,4 @@ Route::get('/map', 'MapController@index');
 
 // Reports
 Route::get('/reports/incidences', 'IncidenceController@index');
-// Route::get('/reports/travels', 'IncidenceController@index');
+Route::get('/reports/travels', 'TravelController@report');
