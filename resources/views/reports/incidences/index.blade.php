@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">
+@endsection
+
 @section('content')
     <div id="content-header">
         <div id="breadcrumb">
@@ -62,10 +66,18 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
     <script>
-        $('.data-table-incidences').dataTable({
+        $('.data-table-incidences').DataTable({
             "bJQueryUI": true,
-            "sPaginationType": "full_numbers"
+            "sPaginationType": "full_numbers",
+            // "dom": '<"H"lf>t<"F"p>',
+            dom: 'B<"clearfix">lfrtip',
+            "oLanguage": {
+                "sSearch": "<span>Filtro:</span> _INPUT_" //search
+            },
+            buttons: ['print']
         });
     </script>
 @endsection

@@ -15,8 +15,10 @@
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/jquery.gritter.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
     @yield('styles')
-    <!-- CSRF Token -->
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -119,7 +121,7 @@
 <script src="{{ asset('js/jquery.uniform.js') }}"></script>
 <script src="{{ asset('js/matrix.popover.js') }}"></script>
 <script src="{{ asset('js/select2.min.js') }}"></script>
-<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('js/matrix.js') }}"></script>
 <script src="{{ asset('js/matrix.tables.js') }}"></script>
 
