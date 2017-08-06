@@ -44,14 +44,12 @@
         </li>
         <li class="submenu">
             <a href="#">
-                <i class="icon icon-info-sign"></i> <span>Error</span>
-                <span class="label label-important">4</span>
+                <i class="icon icon-info-sign"></i> <span>Reportes</span>
+                <span class="label label-important">2</span>
             </a>
             <ul>
-                <li><a href="error403.html">Error 403</a></li>
-                <li><a href="error404.html">Error 404</a></li>
-                <li><a href="error405.html">Error 405</a></li>
-                <li><a href="error500.html">Error 500</a></li>
+                <li><a href="{{ url('reports/incidences') }}">Reporte de incidencias</a></li>
+                <li><a href="{{ url('reports/travels') }}">Reporte de viajes realizados</a></li>
             </ul>
         </li>
 

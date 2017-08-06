@@ -29,7 +29,7 @@ class Travel extends Model
 
     public function route()
     {
-        return $this->belongsTo('App\Route');
+        return $this->belongsTo(Route::class);
     }
 
     public function user()

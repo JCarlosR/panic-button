@@ -23,6 +23,6 @@ class User extends Authenticatable
 
     public function truck()
     {
-        return $this->belongsTo('App\Truck');
+        return $this->belongsTo(Truck::class);
     }
 }

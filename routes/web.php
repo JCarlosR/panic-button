@@ -63,5 +63,8 @@ Route::post('/travels/{id}/edit', 'TravelController@update');
 Route::get('/travels/{id}/turn', 'TravelController@turn');
 Route::get('/travels/{id}/delete', 'TravelController@delete');
 
-
 Route::get('/map', 'MapController@index');
+
+// Reports
+Route::get('/reports/incidences', 'IncidenceController@index');
+// Route::get('/reports/travels', 'IncidenceController@index');
