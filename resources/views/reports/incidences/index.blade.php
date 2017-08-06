@@ -24,7 +24,7 @@
                             </div>
                         @endif
 
-                        <table class="table table-bordered data-table">
+                        <table class="table table-bordered data-table-incidences">
                             <thead>
                             <tr>
                                 <th>Camión</th>
@@ -59,4 +59,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.data-table-incidences').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    </script>
 @endsection
