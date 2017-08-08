@@ -31,6 +31,8 @@ class TravelController extends Controller
 
     	$travel = Travel::find($id);
     	$travel->status = $status;
+        if ($status == 1)
+            $travel->started_at = Carbon::now();
     	if ($status == 2) // Finalizado
     		$travel->arrived_at = Carbon::now();
 
