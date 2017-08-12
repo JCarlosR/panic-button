@@ -15,6 +15,7 @@ class TravelController extends Controller
     	$user_id = $request->input('user_id');
     	$travels = Travel::where('user_id', $user_id)
     		->where('departure_date', Carbon::today())
+            ->where('status', '<>', 2)
     		->get();
 
     	foreach ($travels as $travel) {

@@ -50,6 +50,7 @@
             <ul>
                 <li><a href="{{ url('reports/incidences') }}">Reporte de incidencias</a></li>
                 <li><a href="{{ url('reports/travels') }}">Reporte de viajes realizados</a></li>
+                <li><a href="{{ url('reports/incidences/matrix') }}">Matriz de incidencias</a></li>
             </ul>
         </li>
 
