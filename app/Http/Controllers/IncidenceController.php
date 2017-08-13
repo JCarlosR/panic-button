@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DistressCall;
+use App\Route;
+use App\Travel;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,4 +68,37 @@ class IncidenceController extends Controller
 
         return $countByHours;
     }
+
+    public function driversVsRoutes(Request $request)
+    {
+        $year = $request->input('year');
+        $month = $request->input('month');
+
+        if ($year && $month) {
+            $routes = Route::all();
+            foreach ($routes as $route) {
+                $route->travelIds = Travel::where('route_id', $route->id)->pluck('id');
+            }
+            $drivers = User::where('admin', 0)->where('truck_id', '<>', 0)
+                ->with('truck')->get();
+            // January = 1
+            $query = DistressCall::whereYear('created_at', $year)->whereMonth('created_at', $month+1);
+            // dd($query->get());
+        } else {
+            $routes = [];
+            $drivers = [];
+            $query = null;
+        }
+
+        return view('reports.incidences.drivers-vs-routes')->with(compact(
+            'routes', 'drivers', 'query',
+            'year', 'month'
+        ));
+    }
+
+    public function routesVsMonths()
+    {
+
+    }
+
 }

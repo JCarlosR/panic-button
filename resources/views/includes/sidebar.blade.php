@@ -51,6 +51,8 @@
                 <li><a href="{{ url('reports/incidences') }}">Reporte de incidencias</a></li>
                 <li><a href="{{ url('reports/travels') }}">Reporte de viajes realizados</a></li>
                 <li><a href="{{ url('reports/incidences/matrix') }}">Matriz de incidencias</a></li>
+                <li><a href="{{ url('reports/incidences/drivers-vs-routes') }}">Vehículos VS Rutas</a></li>
+                <li><a href="{{ url('reports/incidences/routes-vs-months') }}">Rutas VS Meses</a></li>
             </ul>
         </li>
 

@@ -69,3 +69,5 @@ Route::get('/map', 'MapController@index');
 Route::get('/reports/incidences', 'IncidenceController@index');
 Route::get('/reports/travels', 'TravelController@report');
 Route::get('/reports/incidences/matrix', 'IncidenceController@matrix');
+Route::get('/reports/incidences/drivers-vs-routes', 'IncidenceController@driversVsRoutes');
+Route::get('/reports/incidences/routes-vs-months', 'IncidenceController@routesVsMonths');
