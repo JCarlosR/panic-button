@@ -29,7 +29,7 @@
                                     <select name="user_id" title="Seleccione una ruta" class="span11" id="trucks" required>
                                         <option value=""></option>
                                         @foreach ($drivers as $driver)
-                                            <option value="{{ $driver->id }}" @if($driver->id==old('driver_id')) selected @endif>
+                                            <option value="{{ $driver->id }}" @if($driver->id==$user_id) selected @endif>
                                                 Placa {{ $driver->truck->code }} ({{ $driver->name }})
                                             </option>
                                         @endforeach
@@ -39,13 +39,13 @@
                             <div class="control-group">
                                 <label for="start-date" class="control-label">Fecha de inicio</label>
                                 <div class="controls">
-                                    <input type="date" id="start-date" name="start_date" class="span11" required>
+                                    <input type="date" id="start-date" name="start_date" class="span11" required value="{{ $start_date }}">
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="end-date" class="control-label">Fecha de fin</label>
                                 <div class="controls">
-                                    <input type="date" id="end-date" name="end_date" class="span11" required>
+                                    <input type="date" id="end-date" name="end_date" class="span11" required value="{{ $end_date }}">
                                 </div>
                             </div>
                             <button class="btn btn-primary btn-block" type="submit">
@@ -53,17 +53,28 @@
                             </button>
                         </form>
 
+                        @if (isset($matrix))
                         <table class="table table-bordered data-table-incidences">
                             <thead>
                             <tr>
-                                <th>Camión</th>
-
+                                <th>Hora</th>
+                                @foreach ($days as $day)
+                                    <th>{{ $day }}</th>
+                                @endforeach
                             </tr>
                             </thead>
                             <tbody>
-
+                            @for ($i=0; $i<6; ++$i)
+                            <tr>
+                                <td>{{ $i*4 }} - {{ ($i*4+3) }}</td>
+                                @for ($j=0; $j<count($days); ++$j)
+                                    <td>{{ $matrix[$j][$i] }}</td>
+                                @endfor
+                            </tr>
+                            @endfor
                             </tbody>
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>
