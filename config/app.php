@@ -177,7 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Nexmo\Laravel\NexmoServiceProvider::class
+        Nexmo\Laravel\NexmoServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -227,7 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Nexmo' => \Nexmo\Laravel\Facade\Nexmo::class
+        'Nexmo' => \Nexmo\Laravel\Facade\Nexmo::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

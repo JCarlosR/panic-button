@@ -96,9 +96,29 @@ class IncidenceController extends Controller
         ));
     }
 
-    public function routesVsMonths()
+    public function routesVsMonths(Request $request)
     {
+        $drivers = User::where('admin', 0)->where('truck_id', '<>', 0)
+            ->with('truck')->get();
+        $user_id = $request->input('user_id');
 
+        if ($user_id) {
+            $routes = Route::all();
+            foreach ($routes as $route) {
+                $route->travelIds = Travel::where('route_id', $route->id)->pluck('id');
+                // dd($route->travelIds);
+            }
+        } else {
+            $routes = [];
+        }
+
+        $query = DistressCall::where('user_id', $user_id);
+        // dd($query->get());
+        // dd($query->whereMonth('created_at', 7)->whereIn('travel_id', [2,3,4])->count());
+
+        return view('reports.incidences.routes-vs-months')->with(compact(
+            'routes', 'user_id', 'query', 'drivers'
+        ));
     }
 
 }
