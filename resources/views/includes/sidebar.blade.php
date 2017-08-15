@@ -24,7 +24,7 @@
         <li>
             <a href="{{ url('receivers') }}">
                 <i class="icon icon-file"></i> <span>Destinatarios</span>
-                <span class="label label-important" title="Vía mail y vía SMS">2</span>
+                {{--<span class="label label-important" title="Vía mail y vía SMS">2</span>--}}
             </a>
         </li>
         <li>
@@ -45,7 +45,7 @@
         <li class="submenu">
             <a href="#">
                 <i class="icon icon-info-sign"></i> <span>Reportes</span>
-                <span class="label label-important">2</span>
+                {{--<span class="label label-important">2</span>--}}
             </a>
             <ul>
                 <li><a href="{{ url('reports/incidences') }}">Reporte de incidencias</a></li>
