@@ -14,6 +14,24 @@ use Nexmo\Laravel\Facade\Nexmo;
 
 class DistressCallController extends Controller
 {
+
+    public function index()
+    {
+        $calls = DistressCall::where('answered', false)
+            ->with([
+                'user' => function ($query) {
+                    $query->select('name', 'id');
+                }
+            ])
+            ->get(['id','user_id','travel_id','lat','lng']);
+
+        foreach ($calls as $call) {
+            $call->route_name = $call->travel->route->name;
+            unset($call->travel);
+        }
+        return $calls;
+    }
+
     public function store(Request $request)
     {
     	$call = new DistressCall();

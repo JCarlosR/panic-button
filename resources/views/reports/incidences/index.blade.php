@@ -36,6 +36,8 @@
                                 <th>DNI</th>
                                 <th>Ruta</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -54,6 +56,18 @@
                                     <td>Viaje no encontrado</td>
                                 @endif
                                 <td>{{ $call->created_at }}</td>
+                                <td>{{ $call->answered ? 'Resuelta' : 'Pendiente' }}</td>
+                                <td>
+                                    @if ($call->answered)
+                                        <a href="/calls/{{ $call->id }}/change" class="btn btn-danger btn-small">
+                                            Volver a pendiente
+                                        </a>
+                                    @else
+                                        <a href="/calls/{{ $call->id }}/change" class="btn btn-primary btn-small">
+                                            Marcar como resuelta
+                                        </a>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>

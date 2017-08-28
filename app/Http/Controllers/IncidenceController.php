@@ -27,6 +27,15 @@ class IncidenceController extends Controller
         return view('reports.incidences.index')->with(compact('calls'));
     }
 
+    public function change($id)
+    {
+        $call = DistressCall::find($id);
+        $call->answered = !$call->answered;
+        $call->save();
+
+        return redirect('/reports/incidences');
+    }
+
     public function matrix(Request $request)
     {
         $matrix = null;

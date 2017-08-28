@@ -10,4 +10,5 @@ Route::get('travels/pending', 'Api\TravelController@pendingTravels');
 Route::get('travels/today', 'Api\TravelController@myTravelsToday');
 Route::post('travels/{id}/status', 'Api\TravelController@updateStatus');
 
+Route::get('distress-calls/pending', 'Api\DistressCallController@index');
 Route::post('distress-call', 'Api\DistressCallController@store');

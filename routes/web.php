@@ -71,3 +71,6 @@ Route::get('/reports/travels', 'TravelController@report');
 Route::get('/reports/incidences/matrix', 'IncidenceController@matrix');
 Route::get('/reports/incidences/drivers-vs-routes', 'IncidenceController@driversVsRoutes');
 Route::get('/reports/incidences/routes-vs-months', 'IncidenceController@routesVsMonths');
+
+// Distress calls status
+Route::get('/calls/{id}/change', 'IncidenceController@change');
