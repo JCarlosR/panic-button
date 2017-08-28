@@ -12,13 +12,20 @@ class TravelController extends Controller
 {
     public function pendingTravels()
     {
-        $travels = Travel::/*where('departure_date', Carbon::today())
-            ->*/where('status', '<>', 2)->get();
+        $travels = Travel::where('status', '<>', 2)
+            ->orderBy('departure_date', 'desc')
+            ->orderBy('departure_time', 'desc')
+            ->get([
+                'id', 'route_id',
+                'departure_date', 'departure_time',
+                'user_id', 'started_at'
+            ]);
 
         foreach ($travels as $travel) {
-            $travel->route_name = $travel->route->name;
-            $travel->driver_name = $travel->user->name;
+            $travel->route_name = $travel->route()->first(['name'])->name;
+            $travel->driver_name = $travel->user()->first(['name'])->name;
             unset($travel->route);
+            unset($travel->user);
         }
 
         return $travels;
