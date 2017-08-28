@@ -23,6 +23,7 @@ class DistressCallController extends Controller
                     $query->select('name', 'id');
                 }
             ])
+            ->orderBy('id', 'desc')
             ->get(['id','user_id','travel_id','lat','lng', 'created_at']);
 
         foreach ($calls as $call) {
