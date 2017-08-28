@@ -23,7 +23,7 @@ class DistressCallController extends Controller
                     $query->select('name', 'id');
                 }
             ])
-            ->get(['id','user_id','travel_id','lat','lng']);
+            ->get(['id','user_id','travel_id','lat','lng', 'created_at']);
 
         foreach ($calls as $call) {
             $call->route_name = $call->travel->route->name;
