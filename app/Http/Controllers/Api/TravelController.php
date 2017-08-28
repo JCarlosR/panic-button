@@ -10,6 +10,20 @@ use Carbon\Carbon;
 
 class TravelController extends Controller
 {
+    public function pendingTravels()
+    {
+        $travels = Travel::/*where('departure_date', Carbon::today())
+            ->*/where('status', '<>', 2)->get();
+
+        foreach ($travels as $travel) {
+            $travel->route_name = $travel->route->name;
+            $travel->driver_name = $travel->user->name;
+            unset($travel->route);
+        }
+
+        return $travels;
+    }
+
     public function myTravelsToday(Request $request)
     {
     	$user_id = $request->input('user_id');
