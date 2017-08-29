@@ -52,7 +52,7 @@ class DistressCallController extends Controller
         $dni = $user->dni;
         $googleMapsLink = "https://www.google.com/maps/dir/$call->lat,$call->lng";
 
-        $smsText = "Se ha reportado una nueva incidencia! El agraviado es $name (con DNI $dni). Y su posición es: $googleMapsLink";
+        $smsText = "Incidencia! Conductor $name (DNI $dni). Pos: $googleMapsLink";
         $phones = Receiver::where('status', 1)->pluck('cellphone');
         foreach ($phones as $phone)
             Nexmo::message()->send([
